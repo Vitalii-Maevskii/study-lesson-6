@@ -1,0 +1,464 @@
+/* Инструкции ======================================================*/
+
+/*
+Шрифт из плагина в VS Code
+Жмем F1 (cmd shift p)
+Пишем Google Fonts
+Выбираем import
+Пишем имя шрифта
+Убираем лишнее
+Добавляем кавычки "" и запись:
+&display=swap  - сообщит браузеру сначала использовать fallback, то есть системный шрифт (sans-serif например), а затем заменить его на реальный шрифт после его загрузки. Так можно избежать задержки в загрузке контента, когда шрифт ещё не прогрузился и улучшить производительность.
+&subset=cyrillic-ext - для кирилицы
+&display=swap&subset=cyrillic-ext - для двух параметоров одновременно
+
+*/
+/* Подключаем шрифты ======================================================*/
+
+/* google */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,400&display=swap");
+
+/* plugin google*/
+/* @import url("https://fonts.googleapis.com/css?family=Ubuntu:300,regular,italic,700&display=swap&subset=cyrillic-ext"); */
+
+
+/* local */
+@font-face {
+   font-weight: 500;
+   font-family: "CeraStencilPRO";
+   font-style: normal;
+
+   font-display: swap;
+   src: url("../fonts/CeraStencilPRO-Medium.woff2") format("woff2"),
+   url("../fonts/CeraStencilPRO-Medium.woff") format("woff");
+}
+
+@font-face {
+   font-weight: bold;
+   font-family: "CeraStencilPRO";
+   font-style: normal;
+
+   font-display: swap;
+   src: url("../fonts/CeraStencilPRO-Bold.woff2") format("woff2"),
+   url("../fonts/CeraStencilPRO-Bold.woff") format("woff");
+}
+
+@font-face {
+   font-weight: normal;
+   font-family: "CeraStencilPRO";
+   font-style: normal;
+
+   font-display: swap;
+   src: url("../fonts/CeraStencilPRO-Regular.woff2") format("woff2"),
+   url("../fonts/CeraStencilPRO-Regular.woff") format("woff");
+}
+/* Стили обнуления ========================================================*/
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+
+   border: 0;
+}
+
+li {
+   list-style: none;
+}
+
+a,
+a:visited {
+   color: inherit;
+   text-decoration: none;
+}
+
+a:hover {
+   text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-weight: inherit;
+   font-size: inherit;
+}
+
+img {
+   max-width: 100%;
+
+   vertical-align: top; /* убирает фантомные отступы у картинки*/
+}
+
+body {
+   line-height: 1;
+   font-family: "CeraStencilPRO", sans-serif;
+   color: #e5e5e5;
+
+   background-color: rgb(145, 145, 145);
+   /* font-size: 16px; можно не указывать, 16px значение по умолчанию */
+}
+
+/* Основные стили ================================================================*/
+.container {
+   max-width: 1400px;
+   margin: 0 auto;
+   padding: 0 10px;
+}
+/* <header> ======================================================================*/
+.header {
+}
+.header__block {
+   padding-top: 40px;
+
+   text-align: center;
+}
+.header__logo {
+   display: inline-block;
+   max-width: 200px;
+   margin: 0 40px 0 0;
+}
+.header__logo a {
+   display: inline-block;
+   /* margin: 0 40px 0 0;  */
+   /* *  тут margin срабатывает как padding */
+}
+.header__logo img {
+   max-width: 100%;
+   /* margin: 0 40px 0 0; */
+   /* !!!!!! тут margin вообще не сработал   */
+
+   vertical-align: middle;
+
+   filter: drop-shadow(40px -25px 3px #3232bb);
+}
+.header__menu {
+   display: inline-block;
+   margin: 0 0 40px 0;
+}
+.header__menu nav {
+}
+.header__menu ul {
+   font-size: 0;
+}
+.header__menu li {
+   display: inline-block;
+   width: 200px;
+   margin: 10px 10px;
+
+   font-weight: 700;
+   font-size: 18px;
+   line-height: 22px;
+   font-family: "Ubuntu";
+   vertical-align: middle;
+   text-align: center;
+   text-transform: uppercase;
+   letter-spacing: 0.05em;
+
+   background-color: #141a4d;
+   border-bottom: 4px solid rgb(235, 235, 235);
+   border-radius: 50px;
+   box-shadow: 0 3px 5px rgb(157, 255, 0);
+}
+.header__menu a {
+   display: block;
+   padding: 15px 15px;
+
+   text-align: left;
+}
+.header__menu img {
+   width: 20px;
+   margin: 0 10px 0 10px;
+
+   line-height: 20px;
+   vertical-align: baseline;
+}
+.header__menu span {
+   text-align: center;
+}
+.header__title {
+   margin: 0 0 50px 0;
+}
+.header__title h1 {
+   margin: 0 0 15px 0;
+
+   font-size: 36px;
+   line-height: 42px;
+   letter-spacing: 0.1em;
+   word-spacing: 0.4em;
+}
+.header__title p {
+   margin: 0 0 15px 0;
+
+   font-size: 24px;
+   line-height: 28px;
+   letter-spacing: 0.1em;
+   word-spacing: 0.4em;
+}
+.display-none {
+   display: none;
+}
+
+/* </header> ======================================================================*/
+/* <main>==========================================================================*/
+.main {
+}
+.main__block {
+   margin: 0 -15px 60px;
+   /* overflow: auto; */
+
+   font-size: 0;
+   text-align: center;
+}
+.main__article {
+   display: inline-block;
+   width: 33.333%;
+   min-width: 310px;
+   padding: 0 15px;
+}
+.article {
+}
+.article--1 {
+}
+.article__inner {
+   margin: 0 0 40px 0;
+   overflow: hidden;
+
+   border: 3px solid #615151;
+   border-radius: 50px 10px 10px;
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+}
+.article__scroll {
+   height: 450px;
+   margin: 0 -30px 0 0;
+   padding: 12px 42px 12px 12px;
+   /* * почему на полном экране видно больше отступ справа чем на мобильном разрешении? */
+   overflow: auto;
+
+   background-color: rgba(21, 115, 255, 0.637);
+}
+.article__title {
+   text-align: right;
+}
+.article__title h2 {
+   display: inline-block;
+   margin: 0 10px 20px 0;
+
+   font-size: 24px;
+}
+.article__title img {
+   width: 6%;
+
+   vertical-align: baseline;
+}
+.article__content {
+   font-size: 18px;
+   line-height: 22px;
+   font-family: "Ubuntu";
+   text-align: justify;
+   letter-spacing: 0.1em;
+}
+.article__content p {
+   margin: 0 0 30px 0;
+}
+.article__content img {
+   margin: 0 0 30px 0;
+}
+.article__content div {
+}
+.article--2 {
+}
+.article--2 .article__inner {
+   border: none;
+   border-bottom: 4px solid rgb(235, 235, 235);
+   border-radius: 50px 20px 30px 100px;
+   box-shadow: 0 4px 8px rgb(157, 255, 0);
+}
+.article--3 .article__inner {
+}
+.article--4 {
+}
+.article--5 {
+}
+.article--6 {
+}
+.article--7 .article__inner {
+   border: none;
+   border-top: 5px solid rgb(139, 139, 139);
+   border-radius: 40px 20px 120px 30px;
+   box-shadow: inset 0 20px 8px 5px rgb(2, 2, 2);
+}
+.article--8 {
+}
+.main__image {
+}
+.image-main {
+}
+.image-main__block {
+   margin: 0 -20px;
+
+   font-size: 0;
+   text-align: center;
+}
+.image-main__block img {
+   width: 33.333%;
+   min-width: 300px;
+   margin: 0 0 40px 0;
+   padding: 0 20px;
+}
+.image-main__article-inner {
+}
+.image-main__item {
+}
+.mage-main__item--1 {
+   text-align: center;
+}
+.mage-main__item--1 img {
+   overflow: hidden;
+
+   border-bottom: 4px solid rgb(235, 235, 235);
+   border-radius: 60px;
+   box-shadow: 0 8px 18px rgb(157, 255, 0);
+}
+.mage-main__item--1 p {
+   max-height: 160px;
+   margin: -62% 40px 0;
+   overflow: auto;
+
+   font-weight: 700;
+   font-size: 26px;
+   line-height: 32px;
+   text-align: justify;
+}
+.mage-main__item--2 {
+   margin: 66% 0 60px 0;
+
+   text-align: justify;
+}
+.mage-main__item--2 img {
+   float: left;
+   max-width: 60%;
+   margin: 10px;
+}
+.mage-main__item--2 p {
+   margin: 0 0 40px 0;
+   padding: 10px;
+
+   font-size: 26px;
+   line-height: 32px;
+   letter-spacing: 0.03em;
+
+   outline: 2px solid yellowgreen;
+
+   Box-shadow: 0 6px 16px 2px rgb(157, 255, 0);
+}
+.stop {
+   clear: both;
+}
+.main__button {
+   margin: 0 0 60px 0;
+}
+.button-block {
+}
+.button-block__item {
+}
+.button-block__item--1 {
+}
+.button-block__item--1 a {
+   display: inline-block;
+   margin: 0 0 40px 0;
+   padding: 10px 85px;
+
+   font-size: 20px;
+   line-height: 26px;
+   vertical-align: middle;
+   text-align: center;
+
+   background-color: rgb(0, 4, 255);
+   border: 30px;
+   border-bottom: 2px solid rgb(235, 235, 235);
+   border-radius: 50px;
+   box-shadow: 0 3px 3px rgb(157, 255, 0);
+}
+.button-block__item--1 img {
+   width: 15px;
+   margin: 0 0 0 5px;
+
+   vertical-align: middle;
+}
+.button-block__item--2 {
+   text-align: center;
+}
+.button-block__item--2 a {
+   display: inline-block;
+   margin: 0 0 40px 0;
+   padding: 20px 80px;
+
+   font-size: 20px;
+   line-height: 26px;
+
+   background-color: rgb(0, 4, 255);
+   border-bottom: 2px solid rgb(235, 235, 235);
+   border-radius: 140px;
+   border-radius: 50px;
+   box-shadow: 0 3px 3px rgb(157, 255, 0);
+}
+.button-block__item--2 img {
+   max-width: 60px;
+   margin: 0 0 0 10px;
+
+   vertical-align: middle;
+}
+.button-block__item--3 {
+   text-align: right;
+}
+.button-block__item--3 a {
+   display: inline-block;
+   margin: 0 0 40px 0;
+   padding: 20px 80px;
+
+   font-size: 20px;
+   line-height: 26px;
+
+   background-color: rgb(0, 4, 255);
+   border-bottom: 2px solid rgb(235, 235, 235);
+   border-radius: 140px;
+   border-radius: 50px;
+   box-shadow: 0 3px 3px rgb(157, 255, 0);
+}
+.button-block__item--3 img {
+   max-width: 60px;
+
+   vertical-align: middle;
+}
+
+
+/* </main>=======================================================================*/
+/* <footer>======================================================================*/
+.footer {
+}
+.footer__block {
+   min-height: 100px;
+   padding: 20px 0;
+
+   text-align: center;
+
+   background-color: rgba(38, 126, 241, 0.801);
+}
+.footer__block a {
+   display: inline-block;
+   margin: 0 0 20px 0;
+
+   font-size: 30px;
+   line-height: 40px;
+   vertical-align: middle;
+}
+.footer__block span {
+   display: block;
+
+   line-height: 30px;
+}
+/* </footer>======================================================================*/
